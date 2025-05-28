@@ -2,7 +2,6 @@ import logging
 
 import pygame
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -22,8 +21,12 @@ def init_controller():
 
 def read_input(joy):
     pygame.event.pump()
-    return {
-        "LY": joy.get_axis(1),  # Left Y-axis
-        "RX": joy.get_axis(3),  # Right X-axis (for expansion)
-        "BTN_A": joy.get_button(0),
-    }
+
+    ly = joy.get_axis(1)  # vertical
+    lx = joy.get_axis(0)  # horizontal
+
+    btn_a = joy.get_button(0)
+
+    logger.debug(f"LY: {ly:.2f}, LX: {lx:.2f}, BTN_A: {btn_a}")
+
+    return {"LY": ly, "LX": lx, "BTN_A": btn_a}
