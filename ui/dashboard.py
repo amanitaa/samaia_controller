@@ -1,10 +1,6 @@
-# dashboard/monitor_ui.py
-
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QGroupBox, QFormLayout
 from PyQt5.QtCore import QTimer
 import sys
-import socket
-import json
 
 from network.udp_client import receive_event
 
