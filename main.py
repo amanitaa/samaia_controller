@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-    logger.info("Samaia Controller starting up...")
+    logger.info("Samaya Controller starting up...")
 
     try:
         joy = init_controller()

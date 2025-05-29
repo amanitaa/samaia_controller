@@ -8,7 +8,7 @@ from network.udp_client import receive_event
 class TelemetryDashboard(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Samaia Realtime Telemetry")
+        self.setWindowTitle("Samaya Realtime Telemetry")
         self.resize(450, 300)
 
         main_layout = QVBoxLayout()

@@ -1,1 +1,1 @@
-# samaia_controller
+# samaya_controller
