@@ -14,3 +14,13 @@ def send_command(msg):
         logger.info(f"Sent: {msg}")
     except Exception as e:
         logger.error(f"Failed to send command: {e}")
+
+
+def receive_event():
+    try:
+        data, _ = sock.recvfrom(1024)
+        msg = data.decode().strip().upper()
+        logger.info(f"Received: {msg}")
+        return msg
+    except Exception as e:
+        logger.error(f"Failed to receive msg: {e}")
