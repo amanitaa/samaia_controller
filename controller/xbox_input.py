@@ -1,8 +1,6 @@
-import logging
-
 import pygame
 
-logger = logging.getLogger(__name__)
+from utils.logger import logger
 
 
 def init_controller():

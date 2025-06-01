@@ -2,10 +2,9 @@ import logging
 import socket
 
 from config import SAMAYA_PORT, SAMAYA_IP
+from utils.logger import logger
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
-logger = logging.getLogger(__name__)
 
 
 def send_command(msg):

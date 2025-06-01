@@ -1,6 +1,4 @@
-import logging
-
-logger = logging.getLogger(__name__)
+from utils.logger import logger
 
 
 def map_input_to_command(data):

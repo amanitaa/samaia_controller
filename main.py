@@ -1,13 +1,10 @@
-import logging
-
 from controller.xbox_input import init_controller, read_input
 from network.udp_client import send_command
 from core.command_mapper import map_input_to_command
 import time
 
 from ui.dashboard import run_gui
-
-logger = logging.getLogger(__name__)
+from utils.logger import logger
 
 
 def main():
