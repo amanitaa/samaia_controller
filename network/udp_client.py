@@ -1,4 +1,3 @@
-import logging
 import socket
 
 from config import SAMAYA_PORT, SAMAYA_IP
