@@ -1,4 +1,6 @@
 import socket
+import orjson
+import struct
 
 from config import SAMAYA_PORT, SAMAYA_IP
 from utils.logger import logger
@@ -9,7 +11,8 @@ sock.connect((SAMAYA_IP, SAMAYA_PORT))
 
 def send_command(msg):
     try:
-        sock.send(msg.encode())
+        json_bytes = orjson.dumps(msg)
+        sock.send(struct.pack('>I', len(json_bytes)) + json_bytes)
         logger.info(f"Sent: {msg}")
     except Exception as e:
         logger.error(f"Failed to send command: {e}")
@@ -17,8 +20,10 @@ def send_command(msg):
 
 def receive_event():
     try:
-        data, _ = sock.recvfrom(1024)
-        msg = data.decode().strip()
+        raw_msg = sock.recv(4)
+        msg_len = struct.unpack('>I', raw_msg)[0]
+        data = sock.recv(msg_len)
+        msg = orjson.loads(data)
         logger.info(f"Received: {msg}")
         return msg
     except Exception as e:
