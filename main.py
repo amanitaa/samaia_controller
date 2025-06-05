@@ -21,8 +21,8 @@ def main():
     while True or KeyboardInterrupt:
         try:
             data = read_input(joy)
-            command = map_input_to_command(data)
-            send_command(command)
+            if command := map_input_to_command(data):
+                send_command(command)
         except Exception as e:
             logger.exception(f"Error in main loop: {e}")
 
